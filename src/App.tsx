@@ -1,10 +1,23 @@
-import { Navbar, Footer } from "./components";
+import {
+  HeroSection,
+  AboutSection,
+  ProjectSection,
+  SkillSection,
+  TimelineSection,
+  ContactSection,
+} from "./pages";
 
 const App = () => {
   return (
     <>
-      <Navbar />
-      <Footer />
+      <div className="font-mono">
+        <HeroSection />
+        <AboutSection />
+        <ProjectSection />
+        <SkillSection />
+        <TimelineSection />
+        <ContactSection />
+      </div>
     </>
   );
 };
