@@ -110,7 +110,7 @@ const Navbar = () => {
         });
       }
 
-      if (delta < -20 && !showNav.current) {
+      if (delta < -5 && !showNav.current) {
         showNav.current = true;
         gsap.to(navbar, {
           y: "0%",
