@@ -1,7 +1,9 @@
 const TimelineSection = () => {
   return (
-    <div>TimelineSection</div>
-  )
-}
+    <>
+      <div className="bg-neutral-300 h-screen"></div>
+    </>
+  );
+};
 
-export default TimelineSection
+export default TimelineSection;

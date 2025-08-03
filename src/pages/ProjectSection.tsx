@@ -1,7 +1,9 @@
 const ProjectSection = () => {
   return (
-    <div>ProjectSection</div>
-  )
+    <>
+      <div className="bg-neutral-500 h-screen"></div>
+    </>
+  );
 }
 
 export default ProjectSection

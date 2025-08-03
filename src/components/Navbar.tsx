@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Menu, X } from "lucide-react";
 import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const navItems = ["Home", "About", "Projects", "Skills", "Timeline", "Contact"];
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navbarRef = useRef(null);
@@ -12,6 +13,8 @@ const Navbar = () => {
   const menuRef = useRef(null);
   const menuBtnRef = useRef(null);
   const sidebarRef = useRef(null);
+  const lastScroll = useRef<number>(0);
+  const showNav = useRef(true);
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
@@ -82,6 +85,46 @@ const Navbar = () => {
     gsap.set(menuBtnRef.current, { y: 100, opacity: 0 });
 
     gsap.set(sidebarRef.current, { opacity: 0, x: -800 });
+  }, []);
+
+  useEffect(() => {
+    const navbar = navbarRef.current;
+    if (!navbar) return;
+
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    if (!isDesktop) return;
+
+    lastScroll.current = window.scrollY;
+
+    const handleScroll = () => {
+      const currentScroll = window.scrollY;
+      const delta = currentScroll - lastScroll.current;
+
+      if (delta > 0 && currentScroll > 800 && showNav.current) {
+        showNav.current = false;
+        gsap.to(navbar, {
+          y: "-100%",
+          duration: 0.6,
+          ease: "power2.out",
+          opacity: 0,
+        });
+      }
+
+      if (delta < -20 && !showNav.current) {
+        showNav.current = true;
+        gsap.to(navbar, {
+          y: "0%",
+          duration: 0.4,
+          ease: "power2.out",
+          opacity: 1,
+        });
+      }
+
+      lastScroll.current = currentScroll;
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (

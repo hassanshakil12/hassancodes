@@ -1,7 +1,9 @@
 const AboutSection = () => {
   return (
-    <div>AboutSection</div>
-  )
-}
+    <>
+      <div className="bg-neutral-700 h-screen"></div>
+    </>
+  );
+};
 
-export default AboutSection
+export default AboutSection;
