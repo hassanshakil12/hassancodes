@@ -54,22 +54,22 @@ const HeroSection = () => {
   return (
     <div className="bg-neutral-800 h-screen">
       <Navbar />
-      <div className="flex flex-col items-center justify-center h-full text-white">
-        <div className="relative w-full flex items-center space-x-12 justify-center h-[120px] overflow-hidden">
+      <div className="flex flex-col items-center justify-center h-full text-white overflow-hidden">
+        <div className="relative w-full flex items-center space-x-12 justify-center h-[120px] overflow-hidden mr-[15%]">
           <div className="relative h-[100%] flex flex-col items-center justify-center rolling-text">
             <h1 className="text-9xl font-bold text-green-500">Coding</h1>
             <h1 className="text-9xl font-bold text-green-500">Anime</h1>
             <h1 className="text-9xl font-bold text-green-500">Data</h1>
             <h1 className="text-9xl font-bold text-green-500">Develop</h1>
             <h1 className="text-9xl font-bold text-green-500">Binary</h1>
-            <h1 className="text-9xl font-bold text-green-500">Digital</h1>
+            <h1 className="text-9xl font-bold text-green-500">Project</h1>
             <h1 className="text-9xl font-bold mt-[50px]">Welcome</h1>
           </div>
           <div>
             <h1 className="text-9xl font-bold side-text">To</h1>
           </div>
         </div>
-        <div className="relative w-full flex items-center space-x-12 justify-center h-[140px] overflow-hidden">
+        <div className="relative w-full flex items-center space-x-12 justify-center h-[140px] overflow-hidden ml-[15%]">
           <div>
             <h1 className="text-9xl font-bold side-text-02">My</h1>
           </div>
